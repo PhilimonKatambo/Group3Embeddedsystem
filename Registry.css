@@ -1,0 +1,31 @@
+#submit{
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #01b2fd, stop:1 #0454fa);
+    color: #f4fbf8;
+    font-size: large;
+    font-family: -apple-system;
+    font-weight: bold;
+    border: 0px solid;
+    border-radius: 10px;
+}
+
+#regLabel{
+    color: #01b2fd;
+    font-size: 20px;
+    font-family: -apple-system;
+    font-weight: bold;
+}
+
+#name,#roomNumber{
+    background-color: #101e27;
+    color: #f4fbf8;
+    font-size: large;
+    font-family: -apple-system;
+    font-weight: bold;
+}
+
+#cardText{
+    color: #01b2fd;
+    font-size: 16px;
+    font-family: -apple-system;
+    font-weight: normal;
+}

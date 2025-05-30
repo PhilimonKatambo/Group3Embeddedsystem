@@ -1,0 +1,43 @@
+#body{
+    background-color: #091b22;
+}
+
+#TabW{
+    background: #091b22;
+}
+
+#TabW::tab{
+    background: #268fbc;
+}
+#mesho{
+    border-radius: 10px;
+    border: 2px solid #268fbc;
+    max-height: 50px;
+}
+
+#Ids{
+    color: #999999;
+    font-family: -apple-system;
+    font-weight: bold;
+    font-size: large;
+}
+
+#dropMenu{
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 #01b2fd, stop:1 #0454fa);
+    width: 100px;
+    color: #f4fbf8;
+    font-size: large;
+    font-family: -apple-system;
+    font-weight: bold;
+    padding: 10px 10px 10px 10px;
+    min-width: 100px;
+    max-width: 100px;
+}
+
+#title1{
+    color: #09caf0;
+    font-weight: bold;
+    font-size: 30px;
+    min-width: 100px;
+    min-height: 50px;
+}
