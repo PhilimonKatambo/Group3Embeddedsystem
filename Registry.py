@@ -5,7 +5,6 @@ import sys
 from Database import DataBase as db
 import threading
 import serial
-import time
 
 class Registry1():
     def __init__(self):
@@ -28,6 +27,7 @@ class Registry1():
         self.window.cardText.setStyleSheet(self.css())
         self.window.RouteReg1.clicked.connect(lambda: self.route1(1))
         self.thread2 = threading.Thread(target=self.GetID1)
+        self.thread2.start()
 
         self.file = QFile("C:/Users/DELL/Desktop/OpenSourceInterface/Login.ui")
         self.loader = QUiLoader()
@@ -67,6 +67,7 @@ class Registry1():
             print(str(logData) + "1")
             self.changeNumber(2)
 
+    # def faceReg(self):
     def css(self):
         with open("Registry.css", 'r') as f:
             cont = f.read()

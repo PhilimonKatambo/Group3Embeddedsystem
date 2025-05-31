@@ -2,17 +2,20 @@ import cv2
 import face_recognition as FR
 from pathlib import Path
 
-
 class Login():
     def __init__(self):
         self.font = cv2.FONT_HERSHEY_SIMPLEX
-        self.cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+        self.cam = cv2.VideoCapture(1, cv2.CAP_DSHOW)
         self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
         self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
         pics1 = list(Path('./registeredPics').glob('*.jpg'))
         pics2 = list(Path('./registeredPics').glob('*.png'))
 
         self.pics = pics1 + pics2
+
+        # self.arduino = serial.Serial('COM6', 9600)
+        # time.sleep(2)
+        # self.arduino.write("1\n".encode())
 
     def logs(self):
 
@@ -55,6 +58,13 @@ class Login():
                             if cv2.waitKey(1) == ord('q'):
                                 self.cam.release()
                                 cv2.destroyAllWindows()
+
+                                # while True:
+                                #     if self.arduino.in_waiting > 0:
+                                #         print("High")
+                                #         msg="1\n"
+                                #         self.arduino.write(msg.encode())
+                                #         break
                                 return True
 
                         else:
