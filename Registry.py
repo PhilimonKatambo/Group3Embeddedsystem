@@ -5,6 +5,7 @@ import sys
 from Database import DataBase as db
 import threading
 import serial
+import cv2
 
 class Registry1():
     def __init__(self):
@@ -26,6 +27,8 @@ class Registry1():
         self.window.roomNumber.setStyleSheet(self.css())
         self.window.cardText.setStyleSheet(self.css())
         self.window.RouteReg1.clicked.connect(lambda: self.route1(1))
+        self.window.FaceReg.clicked.connect(lambda: self.faceReg())
+
         self.thread2 = threading.Thread(target=self.GetID1)
         self.thread2.start()
 
@@ -67,7 +70,17 @@ class Registry1():
             print(str(logData) + "1")
             self.changeNumber(2)
 
-    # def faceReg(self):
+    def faceReg(self):
+        from FaceRecReg import Reg
+        reg = Reg()
+        data = reg.pic1()
+
+        if self.window.name.text() !="":
+            cv2.imwrite(f'./RegisteredPics/{self.window.name.text()}_{data[1]}.jpg', data[0])
+            self.window.cardText.setText(f"{self.window.name.text()} has registered in room {data[1]}")
+        else:
+            self.window.cardText.setText("Enter your name at least!")
+
     def css(self):
         with open("Registry.css", 'r') as f:
             cont = f.read()
